@@ -1,0 +1,52 @@
+"var jq = document.createElement('script');
+    jq.src = ""https://code.jquery.com/jquery-3.6.0.slim.min.js"";
+    document.getElementsByTagName('head')[0].appendChild(jq);
+
+ 
+
+    setTimeout(function(){
+      let arr = [];
+      $('.v-data-table__wrapper table tbody tr td .my-2 div span').each(function(el, text, ar){
+        if($(this).is(':contains(""ID"")')){
+          let to_integer = parseInt($(this).text().replace(/\D+/g,""""));
+          arr.push(to_integer + '\n'); 
+          to_integer = '';
+        }
+      });
+
+ 
+
+      var blob = new Blob(arr, { type: 'txt' });
+
+ 
+
+      var a = document.createElement('a');
+      a.download = 'IDs';
+      a.href = URL.createObjectURL(blob);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function() { URL.revokeObjectURL(a.href); }, 1500);
+    },250)"					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
